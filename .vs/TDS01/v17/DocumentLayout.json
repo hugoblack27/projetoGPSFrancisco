@@ -1,0 +1,70 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\hugo.hpsantos1\\Documents\\Visual Studio 2022\\TDS01\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0A4DA0FF-63F2-4869-8A9C-A31BCD8E7AA8}|GPSFrancisco\\GPSFrancisco.csproj|c:\\users\\hugo.hpsantos1\\documents\\visual studio 2022\\tds01\\gpsfrancisco\\frmgerenciarusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A4DA0FF-63F2-4869-8A9C-A31BCD8E7AA8}|GPSFrancisco\\GPSFrancisco.csproj|solutionrelative:gpsfrancisco\\frmgerenciarusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A4DA0FF-63F2-4869-8A9C-A31BCD8E7AA8}|GPSFrancisco\\GPSFrancisco.csproj|C:\\Users\\hugo.hpsantos1\\Documents\\Visual Studio 2022\\TDS01\\gpsfrancisco\\frmgerenciarusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0A4DA0FF-63F2-4869-8A9C-A31BCD8E7AA8}|GPSFrancisco\\GPSFrancisco.csproj|solutionrelative:gpsfrancisco\\frmgerenciarusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A4DA0FF-63F2-4869-8A9C-A31BCD8E7AA8}|GPSFrancisco\\GPSFrancisco.csproj|c:\\users\\hugo.hpsantos1\\documents\\visual studio 2022\\tds01\\gpsfrancisco\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A4DA0FF-63F2-4869-8A9C-A31BCD8E7AA8}|GPSFrancisco\\GPSFrancisco.csproj|solutionrelative:gpsfrancisco\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\hugo.hpsantos1\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\Program.cs",
+              "RelativeDocumentMoniker": "GPSFrancisco\\Program.cs",
+              "ToolTip": "C:\\Users\\hugo.hpsantos1\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\Program.cs",
+              "RelativeToolTip": "GPSFrancisco\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-07T14:45:02.945Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmGerenciarUsuarios.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\hugo.hpsantos1\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\frmGerenciarUsuarios.cs",
+              "RelativeDocumentMoniker": "GPSFrancisco\\frmGerenciarUsuarios.cs",
+              "ToolTip": "C:\\Users\\hugo.hpsantos1\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\frmGerenciarUsuarios.cs [Design]",
+              "RelativeToolTip": "GPSFrancisco\\frmGerenciarUsuarios.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T13:53:34.335Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmGerenciarUsuarios.cs",
+              "DocumentMoniker": "C:\\Users\\hugo.hpsantos1\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\frmGerenciarUsuarios.cs",
+              "RelativeDocumentMoniker": "GPSFrancisco\\frmGerenciarUsuarios.cs",
+              "ToolTip": "C:\\Users\\hugo.hpsantos1\\Documents\\Visual Studio 2022\\TDS01\\GPSFrancisco\\frmGerenciarUsuarios.cs",
+              "RelativeToolTip": "GPSFrancisco\\frmGerenciarUsuarios.cs",
+              "ViewState": "AgIAAGIAAAAAAAAAAAAYwHsAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T13:54:49.04Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
