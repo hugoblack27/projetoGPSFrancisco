@@ -48,5 +48,19 @@ namespace GPSFrancisco
             abrir.Show();
             this.Hide();
         }
+
+        private void btnAtribuições_Click(object sender, EventArgs e)
+        {
+            frmAtribuicoes abrir = new frmAtribuicoes();
+            abrir.Show();
+            this.Hide();
+        }
+
+        private void btnVoluntarios_Click(object sender, EventArgs e)
+        {
+            frmGerenciarVoluntarios abrir = new frmGerenciarVoluntarios();
+            abrir.Show();
+            this.Hide();
+        }
     }
 }

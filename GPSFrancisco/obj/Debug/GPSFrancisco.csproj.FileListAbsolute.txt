@@ -92,3 +92,5 @@ C:\Users\hugo.hpsantos1\Documents\Visual Studio 2022\GPSFrancisco\GSFrancisco-CS
 C:\Users\hugo.hpsantos1\Documents\Visual Studio 2022\GPSFrancisco\GSFrancisco-CSharp\GPSFrancisco\obj\Debug\GPSFranc.6682C739.Up2Date
 C:\Users\hugo.hpsantos1\Documents\Visual Studio 2022\GPSFrancisco\GSFrancisco-CSharp\GPSFrancisco\obj\Debug\GPSFrancisco.exe
 C:\Users\hugo.hpsantos1\Documents\Visual Studio 2022\GPSFrancisco\GSFrancisco-CSharp\GPSFrancisco\obj\Debug\GPSFrancisco.pdb
+C:\Users\hugo.hpsantos1\Documents\Visual Studio 2022\GPSFrancisco\GSFrancisco-CSharp\GPSFrancisco\obj\Debug\GPSFrancisco.frmAtribuicoes.resources
+C:\Users\hugo.hpsantos1\Documents\Visual Studio 2022\GPSFrancisco\GSFrancisco-CSharp\GPSFrancisco\obj\Debug\GPSFrancisco.frmGerenciarVoluntarios.resources
