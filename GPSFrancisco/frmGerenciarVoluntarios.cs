@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MosaicoSolutions.ViaCep;
 
 namespace GPSFrancisco
 {
@@ -21,7 +22,14 @@ namespace GPSFrancisco
             carregaAtribuicoes();
         }
 
-
+        //criando metodo construtor comparametro
+        public frmGerenciarVoluntarios(string nome)
+        {
+            InitializeComponent();
+            desabilitarCampos();
+            carregaAtribuicoes();
+            txtNome.Text = nome;
+        }
 
         public int cadastrarVoluntarios(string nome, string email, string tecCel, string endereco, string numero,
                string cep, string bairro, string cidade, string estado, 
@@ -80,7 +88,7 @@ namespace GPSFrancisco
 
         private void btnLimpar_Click(object sender, EventArgs e)
         {
-
+            limparcampos();
 
         }
         public void habilitarCamposNovo()
@@ -103,7 +111,7 @@ namespace GPSFrancisco
             dtpData.Enabled = true;
             dtpHora.Enabled = true;
             ckbAtivo.Enabled = true;
-
+            txtComplemento.Enabled = true;
         }
 
         public void desabilitarCampos()
@@ -127,7 +135,7 @@ namespace GPSFrancisco
             dtpData.Enabled = false;
             dtpHora.Enabled = false;
             ckbAtivo.Enabled = false;
-
+            txtComplemento.Enabled = false;
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
@@ -168,9 +176,28 @@ namespace GPSFrancisco
             buscaCodigoAtribuicoes(cbbAtribuicoes.SelectedItem.ToString());
         }
 
-        //botão cadastras
+        //botão cadastrar
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+            if (txtNome.Text.Equals("")||txtEmail.Text.Equals("")||mskbTelefone.Text.Equals("(  )      -")|| txtBairro.Text.Equals("")|| txtCidade.Text.Equals("")||txtEndereco.Text.Equals("")||txtNumero.Text.Equals("")||mskbCep.Text.Equals("     -")||cbbEstado.Items.Equals("")||ckbAtivo.Checked == false)
+            {
+                MessageBox.Show("Por favor preencher os campos ", 
+                    "Mensagem do sistema",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1);
+                txtNome.Focus();
+            }
+            else
+            {
+                MessageBox.Show("Voluntario Cadastrado ",
+                   "Mensagem do sistema",
+                   MessageBoxButtons.OK,
+                   MessageBoxIcon.Information,
+                   MessageBoxDefaultButton.Button1);
+                limparcampos();
+                desabilitarCampos();
+            }
 
         }
         // limpar campos
@@ -192,9 +219,9 @@ namespace GPSFrancisco
             dtpHora.Value = DateTime.Now;
             btnAlterar.Enabled = false;
             btnExcluir.Enabled = false;
-            btnLimpar.Enabled = true;
+            btnLimpar.Enabled = false;
             btnCadastrar.Enabled = false;
-
+            txtComplemento.Clear();
 
         }
 
@@ -227,5 +254,52 @@ namespace GPSFrancisco
 
         }
 
+
+        //método para buscar o cep
+        public void buscaCEP(string cep)
+        {
+            var viaCEPService = ViaCepService.Default();
+            try
+            {
+            var endereco = viaCEPService.ObterEndereco(cep);
+
+            txtEndereco.Text = endereco.Logradouro.ToString();
+            txtCidade.Text = endereco.Localidade.ToString();
+            txtBairro.Text = endereco.Bairro.ToString();
+            cbbEstado.Text = endereco.UF.ToString();
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Cep não encontrado", "menssagem do sistema",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1);
+                mskbCep.Focus();
+                
+
+            }
+        }
+
+
+
+        private void mskbCep_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+                {
+                buscaCEP(mskbCep.Text);
+                txtNumero.Focus();
+                }
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            frmPesquisarVoluntario abrir = new frmPesquisarVoluntario();
+            abrir.Show();
+            this.Hide();
+        }
+
+
+        // 
     }
 }

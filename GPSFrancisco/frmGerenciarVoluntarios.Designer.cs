@@ -51,6 +51,7 @@
             this.lblCodigo = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.gpbInformacoesdivegente = new System.Windows.Forms.GroupBox();
+            this.lblCodatribuicoes = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.ckbAtivo = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -67,7 +68,8 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.lblCodatribuicoes = new System.Windows.Forms.Label();
+            this.txtComplemento = new System.Windows.Forms.TextBox();
+            this.lblComplemento = new System.Windows.Forms.Label();
             this.gpbInformacaodoVoluntario.SuspendLayout();
             this.gpbInformacoesdivegente.SuspendLayout();
             this.pnlCRUD.SuspendLayout();
@@ -75,6 +77,8 @@
             // 
             // gpbInformacaodoVoluntario
             // 
+            this.gpbInformacaodoVoluntario.Controls.Add(this.lblComplemento);
+            this.gpbInformacaodoVoluntario.Controls.Add(this.txtComplemento);
             this.gpbInformacaodoVoluntario.Controls.Add(this.cbbEstado);
             this.gpbInformacaodoVoluntario.Controls.Add(this.lblEstado);
             this.gpbInformacaodoVoluntario.Controls.Add(this.lblCidade);
@@ -138,7 +142,7 @@
             this.cbbEstado.Location = new System.Drawing.Point(415, 235);
             this.cbbEstado.Name = "cbbEstado";
             this.cbbEstado.Size = new System.Drawing.Size(157, 28);
-            this.cbbEstado.TabIndex = 8;
+            this.cbbEstado.TabIndex = 9;
             // 
             // lblEstado
             // 
@@ -163,7 +167,7 @@
             this.txtCidade.Location = new System.Drawing.Point(217, 235);
             this.txtCidade.Name = "txtCidade";
             this.txtCidade.Size = new System.Drawing.Size(177, 26);
-            this.txtCidade.TabIndex = 7;
+            this.txtCidade.TabIndex = 8;
             // 
             // lblBairro
             // 
@@ -179,7 +183,7 @@
             this.txtBairro.Location = new System.Drawing.Point(21, 234);
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.Size = new System.Drawing.Size(177, 26);
-            this.txtBairro.TabIndex = 6;
+            this.txtBairro.TabIndex = 7;
             // 
             // lblNumero
             // 
@@ -220,6 +224,7 @@
             this.mskbCep.Name = "mskbCep";
             this.mskbCep.Size = new System.Drawing.Size(100, 26);
             this.mskbCep.TabIndex = 5;
+            this.mskbCep.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mskbCep_KeyDown);
             // 
             // lblCep
             // 
@@ -315,6 +320,15 @@
             this.gpbInformacoesdivegente.TabStop = false;
             this.gpbInformacoesdivegente.Text = "Informações divergentes";
             // 
+            // lblCodatribuicoes
+            // 
+            this.lblCodatribuicoes.AutoSize = true;
+            this.lblCodatribuicoes.Location = new System.Drawing.Point(521, 88);
+            this.lblCodatribuicoes.Name = "lblCodatribuicoes";
+            this.lblCodatribuicoes.Size = new System.Drawing.Size(142, 20);
+            this.lblCodatribuicoes.TabIndex = 31;
+            this.lblCodatribuicoes.Text = "Código Atribuições";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -330,7 +344,7 @@
             this.ckbAtivo.Location = new System.Drawing.Point(732, 56);
             this.ckbAtivo.Name = "ckbAtivo";
             this.ckbAtivo.Size = new System.Drawing.Size(63, 24);
-            this.ckbAtivo.TabIndex = 12;
+            this.ckbAtivo.TabIndex = 13;
             this.ckbAtivo.Text = "Ativo";
             this.ckbAtivo.UseVisualStyleBackColor = true;
             // 
@@ -367,7 +381,7 @@
             this.dtpHora.Location = new System.Drawing.Point(311, 59);
             this.dtpHora.Name = "dtpHora";
             this.dtpHora.Size = new System.Drawing.Size(83, 26);
-            this.dtpHora.TabIndex = 11;
+            this.dtpHora.TabIndex = 12;
             this.dtpHora.Value = new System.DateTime(2025, 5, 26, 8, 39, 9, 0);
             // 
             // dtpData
@@ -376,7 +390,7 @@
             this.dtpData.Location = new System.Drawing.Point(180, 59);
             this.dtpData.Name = "dtpData";
             this.dtpData.Size = new System.Drawing.Size(107, 26);
-            this.dtpData.TabIndex = 10;
+            this.dtpData.TabIndex = 11;
             this.dtpData.Value = new System.DateTime(2025, 5, 26, 8, 39, 9, 0);
             // 
             // cbbAtribuicoes
@@ -385,7 +399,7 @@
             this.cbbAtribuicoes.Location = new System.Drawing.Point(10, 59);
             this.cbbAtribuicoes.Name = "cbbAtribuicoes";
             this.cbbAtribuicoes.Size = new System.Drawing.Size(157, 28);
-            this.cbbAtribuicoes.TabIndex = 9;
+            this.cbbAtribuicoes.TabIndex = 10;
             this.cbbAtribuicoes.SelectedIndexChanged += new System.EventHandler(this.cbbAtribuicoes_SelectedIndexChanged);
             // 
             // pnlCRUD
@@ -410,7 +424,7 @@
             this.btnVoltar.Location = new System.Drawing.Point(744, 11);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(121, 42);
-            this.btnVoltar.TabIndex = 19;
+            this.btnVoltar.TabIndex = 20;
             this.btnVoltar.Text = "&Voltar";
             this.btnVoltar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -424,7 +438,7 @@
             this.btnLimpar.Location = new System.Drawing.Point(621, 11);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(121, 42);
-            this.btnLimpar.TabIndex = 18;
+            this.btnLimpar.TabIndex = 19;
             this.btnLimpar.Text = "&Limpar";
             this.btnLimpar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLimpar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -438,11 +452,12 @@
             this.btnPesquisar.Location = new System.Drawing.Point(497, 11);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(121, 42);
-            this.btnPesquisar.TabIndex = 17;
+            this.btnPesquisar.TabIndex = 18;
             this.btnPesquisar.Text = "&Pesquisar";
             this.btnPesquisar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPesquisar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // btnExcluir
             // 
@@ -451,7 +466,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(374, 11);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(121, 42);
-            this.btnExcluir.TabIndex = 16;
+            this.btnExcluir.TabIndex = 17;
             this.btnExcluir.Text = "&Excluir";
             this.btnExcluir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnExcluir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -465,7 +480,7 @@
             this.btnAlterar.Location = new System.Drawing.Point(252, 11);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(121, 42);
-            this.btnAlterar.TabIndex = 15;
+            this.btnAlterar.TabIndex = 16;
             this.btnAlterar.Text = "&Alterar";
             this.btnAlterar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAlterar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -478,7 +493,7 @@
             this.btnCadastrar.Location = new System.Drawing.Point(129, 11);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(121, 42);
-            this.btnCadastrar.TabIndex = 14;
+            this.btnCadastrar.TabIndex = 15;
             this.btnCadastrar.Text = "&Cadastrar";
             this.btnCadastrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCadastrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -492,21 +507,28 @@
             this.btnNovo.Location = new System.Drawing.Point(4, 11);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(121, 42);
-            this.btnNovo.TabIndex = 13;
+            this.btnNovo.TabIndex = 14;
             this.btnNovo.Text = "&Novo";
             this.btnNovo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNovo.UseVisualStyleBackColor = true;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
-            // lblCodatribuicoes
+            // txtComplemento
             // 
-            this.lblCodatribuicoes.AutoSize = true;
-            this.lblCodatribuicoes.Location = new System.Drawing.Point(521, 88);
-            this.lblCodatribuicoes.Name = "lblCodatribuicoes";
-            this.lblCodatribuicoes.Size = new System.Drawing.Size(142, 20);
-            this.lblCodatribuicoes.TabIndex = 31;
-            this.lblCodatribuicoes.Text = "Código Atribuições";
+            this.txtComplemento.Location = new System.Drawing.Point(697, 178);
+            this.txtComplemento.Name = "txtComplemento";
+            this.txtComplemento.Size = new System.Drawing.Size(143, 26);
+            this.txtComplemento.TabIndex = 6;
+            // 
+            // lblComplemento
+            // 
+            this.lblComplemento.AutoSize = true;
+            this.lblComplemento.Location = new System.Drawing.Point(693, 152);
+            this.lblComplemento.Name = "lblComplemento";
+            this.lblComplemento.Size = new System.Drawing.Size(108, 20);
+            this.lblComplemento.TabIndex = 24;
+            this.lblComplemento.Text = "Complemento";
             // 
             // frmGerenciarVoluntarios
             // 
@@ -570,5 +592,7 @@
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.Label lblCodatribuicoes;
+        private System.Windows.Forms.Label lblComplemento;
+        private System.Windows.Forms.TextBox txtComplemento;
     }
 }
