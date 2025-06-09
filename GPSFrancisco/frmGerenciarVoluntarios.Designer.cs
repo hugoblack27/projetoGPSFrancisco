@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGerenciarVoluntarios));
             this.gpbInformacaodoVoluntario = new System.Windows.Forms.GroupBox();
+            this.lblComplemento = new System.Windows.Forms.Label();
+            this.txtComplemento = new System.Windows.Forms.TextBox();
             this.cbbEstado = new System.Windows.Forms.ComboBox();
             this.lblEstado = new System.Windows.Forms.Label();
             this.lblCidade = new System.Windows.Forms.Label();
@@ -68,15 +70,19 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.txtComplemento = new System.Windows.Forms.TextBox();
-            this.lblComplemento = new System.Windows.Forms.Label();
+            this.pcbFoto = new System.Windows.Forms.PictureBox();
+            this.btnCarregarfoto = new System.Windows.Forms.Button();
+            this.ofdCarregar = new System.Windows.Forms.OpenFileDialog();
             this.gpbInformacaodoVoluntario.SuspendLayout();
             this.gpbInformacoesdivegente.SuspendLayout();
             this.pnlCRUD.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbFoto)).BeginInit();
             this.SuspendLayout();
             // 
             // gpbInformacaodoVoluntario
             // 
+            this.gpbInformacaodoVoluntario.Controls.Add(this.btnCarregarfoto);
+            this.gpbInformacaodoVoluntario.Controls.Add(this.pcbFoto);
             this.gpbInformacaodoVoluntario.Controls.Add(this.lblComplemento);
             this.gpbInformacaodoVoluntario.Controls.Add(this.txtComplemento);
             this.gpbInformacaodoVoluntario.Controls.Add(this.cbbEstado);
@@ -106,6 +112,22 @@
             this.gpbInformacaodoVoluntario.TabIndex = 0;
             this.gpbInformacaodoVoluntario.TabStop = false;
             this.gpbInformacaodoVoluntario.Text = "Informação do voluntario";
+            // 
+            // lblComplemento
+            // 
+            this.lblComplemento.AutoSize = true;
+            this.lblComplemento.Location = new System.Drawing.Point(693, 152);
+            this.lblComplemento.Name = "lblComplemento";
+            this.lblComplemento.Size = new System.Drawing.Size(108, 20);
+            this.lblComplemento.TabIndex = 24;
+            this.lblComplemento.Text = "Complemento";
+            // 
+            // txtComplemento
+            // 
+            this.txtComplemento.Location = new System.Drawing.Point(697, 178);
+            this.txtComplemento.Name = "txtComplemento";
+            this.txtComplemento.Size = new System.Drawing.Size(143, 26);
+            this.txtComplemento.TabIndex = 6;
             // 
             // cbbEstado
             // 
@@ -514,21 +536,29 @@
             this.btnNovo.UseVisualStyleBackColor = true;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
-            // txtComplemento
+            // pcbFoto
             // 
-            this.txtComplemento.Location = new System.Drawing.Point(697, 178);
-            this.txtComplemento.Name = "txtComplemento";
-            this.txtComplemento.Size = new System.Drawing.Size(143, 26);
-            this.txtComplemento.TabIndex = 6;
+            this.pcbFoto.Location = new System.Drawing.Point(697, 10);
+            this.pcbFoto.Name = "pcbFoto";
+            this.pcbFoto.Size = new System.Drawing.Size(135, 136);
+            this.pcbFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pcbFoto.TabIndex = 25;
+            this.pcbFoto.TabStop = false;
             // 
-            // lblComplemento
+            // btnCarregarfoto
             // 
-            this.lblComplemento.AutoSize = true;
-            this.lblComplemento.Location = new System.Drawing.Point(693, 152);
-            this.lblComplemento.Name = "lblComplemento";
-            this.lblComplemento.Size = new System.Drawing.Size(108, 20);
-            this.lblComplemento.TabIndex = 24;
-            this.lblComplemento.Text = "Complemento";
+            this.btnCarregarfoto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCarregarfoto.Location = new System.Drawing.Point(589, 25);
+            this.btnCarregarfoto.Name = "btnCarregarfoto";
+            this.btnCarregarfoto.Size = new System.Drawing.Size(102, 21);
+            this.btnCarregarfoto.TabIndex = 26;
+            this.btnCarregarfoto.Text = "Carregar sua foto";
+            this.btnCarregarfoto.UseVisualStyleBackColor = true;
+            this.btnCarregarfoto.Click += new System.EventHandler(this.btnCarregarfoto_Click);
+            // 
+            // ofdCarregar
+            // 
+            this.ofdCarregar.FileName = "openFileDialog1";
             // 
             // frmGerenciarVoluntarios
             // 
@@ -547,6 +577,7 @@
             this.gpbInformacoesdivegente.ResumeLayout(false);
             this.gpbInformacoesdivegente.PerformLayout();
             this.pnlCRUD.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pcbFoto)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -594,5 +625,8 @@
         private System.Windows.Forms.Label lblCodatribuicoes;
         private System.Windows.Forms.Label lblComplemento;
         private System.Windows.Forms.TextBox txtComplemento;
+        private System.Windows.Forms.Button btnCarregarfoto;
+        private System.Windows.Forms.PictureBox pcbFoto;
+        private System.Windows.Forms.OpenFileDialog ofdCarregar;
     }
 }

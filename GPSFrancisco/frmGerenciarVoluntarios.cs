@@ -299,6 +299,15 @@ namespace GPSFrancisco
             this.Hide();
         }
 
+        private void btnCarregarfoto_Click(object sender, EventArgs e)
+        {
+            //pcbFoto.Image = Image.FromFile("C:\\Users\\hugo.hpsantos1\\Documents\\Visual Studio 2022\\GPSFrancisco\\GSFrancisco-CSharp\\imagens\\Tela.JPG");
+            //pcbFoto.ImageLocation = @"C:\\Users\\hugo.hpsantos1\\Documents\\Visual Studio 2022\\GPSFrancisco\\GSFrancisco-CSharp\\imagens\\Tela.JPG";
+            ofdCarregar.ShowDialog();
+            string path = ofdCarregar.FileName;
+            pcbFoto.Image = Image.FromFile(path);
+        }
+
 
         // 
     }
