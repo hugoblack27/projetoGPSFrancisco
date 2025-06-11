@@ -53,8 +53,7 @@ namespace GPSFrancisco
                     }
                 
                 }
-            
-                    ltbPesquisar.Items.Add(txtDescricao.Text);
+                    
 
             }
         }
@@ -62,11 +61,11 @@ namespace GPSFrancisco
         public void BuscarVoluntarioPorCodigo(int codVol)
         {
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "SELECT * FROM tbvoluntarios WHERE codVol = codVol;";
+            comm.CommandText = "select * from tbvoluntarios where codVol = @codVol;";
             comm.CommandType = CommandType.Text;
 
             comm.Parameters.Clear();
-            comm.Parameters.Add("@codVol",MySqlDbType.Int32).Value = codVol;
+            comm.Parameters.Add("@codVol", MySqlDbType.Int32).Value = codVol;
             comm.Connection = Conexao.obterConexao();
 
             MySqlDataReader DR;
@@ -75,34 +74,26 @@ namespace GPSFrancisco
 
             ltbPesquisar.Items.Clear();
             ltbPesquisar.Items.Add(DR.GetInt32(0));
+
             Conexao.fecharConexao();
-
-
         }
 
         public void BuscarVoluntarioPorNome(string nome)
         {
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "SELECT * FROM tbvoluntarios WHERE nome like '%"+nome+"%';";
+            comm.CommandText = "select * from tbvoluntarios where nome like '%" + nome + "%';";
             comm.CommandType = CommandType.Text;
 
-            comm.Parameters.Clear();
-            comm.Parameters.Add("@codVol", MySqlDbType.Int32).Value = nome;
             comm.Connection = Conexao.obterConexao();
 
             MySqlDataReader DR;
             DR = comm.ExecuteReader();
-            DR.Read();
-
             ltbPesquisar.Items.Clear();
-            while( DR.Read())
+            while (DR.Read())
             {
-
-            ltbPesquisar.Items.Add(DR.GetString(1));
+                ltbPesquisar.Items.Add(DR.GetString(1));
             }
             Conexao.fecharConexao();
-
-
         }
 
         public void Limparcampos()

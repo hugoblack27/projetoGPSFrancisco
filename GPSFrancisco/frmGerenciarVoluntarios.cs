@@ -29,6 +29,7 @@ namespace GPSFrancisco
             desabilitarCampos();
             carregaAtribuicoes();
             txtNome.Text = nome;
+            carregaVoluntarioPorNome(txtNome.Text);
         }
 
         public int cadastrarVoluntarios(string nome, string email, string tecCel, string endereco, string numero,
@@ -50,8 +51,8 @@ namespace GPSFrancisco
             comm.Parameters.Add("@cidade", MySqlDbType.VarChar, 100).Value = cidade;
             comm.Parameters.Add("@estado", MySqlDbType.VarChar, 2).Value = estado;
             comm.Parameters.Add("@codAtr", MySqlDbType.Int32).Value = codigoatribuicao;
-            comm.Parameters.Add("@data", MySqlDbType.Date, 100).Value = data;
-            comm.Parameters.Add("@hora", MySqlDbType.Time, 100).Value = hora;
+            comm.Parameters.Add("@data", MySqlDbType.DateTime, 100).Value = data;
+            comm.Parameters.Add("@hora", MySqlDbType.DateTime, 100).Value = hora;
             comm.Parameters.Add("@status", MySqlDbType.Bit, 100).Value = status;
 
 
@@ -94,6 +95,7 @@ namespace GPSFrancisco
         public void habilitarCamposNovo()
         {
             txtNome.Enabled = true;
+            btnNovo.Enabled = false;
             btnCadastrar.Enabled = true;
             btnAlterar.Enabled = false;
             btnExcluir.Enabled = false;
@@ -308,7 +310,54 @@ namespace GPSFrancisco
             pcbFoto.Image = Image.FromFile(path);
         }
 
+        public void carregaVoluntarioPorNome(string nome)
+        {
+            bool status = false;
 
-        // 
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "select * from tbVoluntarios where nome = @nome";
+            comm.CommandType = CommandType.Text;
+            comm.Parameters.Clear();
+            comm.Parameters.Add("@nome", MySqlDbType.VarString,100).Value = nome;
+
+            comm.Connection = Conexao.obterConexao();
+
+            MySqlDataReader DR;
+            DR = comm.ExecuteReader();
+            DR.Read();
+
+            if (DR.GetInt32(13) == 1)
+            {
+                status = true;
+            }
+            if (DR.GetInt32(13) == 0)
+            {
+                status = false;
+            }
+
+            txtCodigo.Text = Convert.ToString(DR.GetInt32(0));
+            txtNome.Text = DR.GetString(1);
+            txtEmail.Text = DR.GetString(2);
+            mskbTelefone.Text = DR.GetString(3);
+            txtEndereco.Text = DR.GetString(4);
+            txtNumero.Text = DR.GetString(5);
+            mskbCep.Text = DR.GetString(6);
+            txtBairro.Text = DR.GetString(7);
+            txtCidade.Text = DR.GetString(8);
+            cbbEstado.Text = DR.GetString(9);
+            codigoatribuicao = DR.GetInt32(10);
+            dtpData.Value = DR.GetDateTime(11);
+            dtpHora.Value = DR.GetDateTime(12);
+            ckbAtivo.Checked = status;
+
+            Conexao.fecharConexao();
+
+            habilitarCamposNovo();
+        
+        }
+
+
+
+        
     }
 }
