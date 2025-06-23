@@ -70,6 +70,7 @@ namespace GPSFrancisco
                 txtEndereco.Text.Equals("") ||
                 txtNumero.Text.Equals("") ||
                 mskCEP.Text.Equals("     -") ||
+                txtComplemento.Text.Equals("") ||
                 txtBairro.Text.Equals("") ||
                 txtCidade.Text.Equals("") ||
                 cbbEstado.Text.Equals("") ||
@@ -98,7 +99,7 @@ namespace GPSFrancisco
                 }
                 if (cadastrarVoluntarios(
                     txtNome.Text, txtEmail.Text, mskTelefone.Text,
-                    txtEndereco.Text, txtNumero.Text, mskCEP.Text,
+                    txtEndereco.Text, txtNumero.Text, mskCEP.Text, txtComplemento.Text,
                     txtBairro.Text, txtCidade.Text, cbbEstado.Text,
                     codigoAtribucao, dtpData.Value,
                     dtpHora.Value, status,salvarFotos().LongLength) == 1)
@@ -118,12 +119,12 @@ namespace GPSFrancisco
         }
 
         public int cadastrarVoluntarios(string nome, string email, string telCel,
-            string endereco, string numero, string cep, string bairro,
+            string endereco, string numero, string cep, string complemento, string bairro,
             string cidade, string estado, int codAtr,
             DateTime data, DateTime hora, int status, long foto)
         {
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "insert into tbVoluntarios(nome,email,telCel,endereco,numero,cep,bairro,cidade,estado,codAtr,data,hora,status,foto)values(@nome,@email,@telCel,@endereco,@numero,@cep,@bairro,@cidade,@estado,@codAtr,@data,@hora,@status,@foto);";
+            comm.CommandText = "insert into tbVoluntarios(nome,email,telCel,endereco,numero,cep,complemento,bairro,cidade,estado,codAtr,data,hora,status,foto)values(@nome,@email,@telCel,@endereco,@numero,@cep,@complemento,@bairro,@cidade,@estado,@codAtr,@data,@hora,@status,@foto);";
             comm.CommandType = CommandType.Text;
 
             comm.Parameters.Clear();
@@ -133,6 +134,7 @@ namespace GPSFrancisco
             comm.Parameters.Add("@endereco", MySqlDbType.VarChar, 100).Value = endereco;
             comm.Parameters.Add("@numero", MySqlDbType.VarChar, 5).Value = numero;
             comm.Parameters.Add("@cep", MySqlDbType.VarChar, 9).Value = cep;
+            comm.Parameters.Add("@complemento", MySqlDbType.VarChar, 100).Value = complemento;
             comm.Parameters.Add("@bairro", MySqlDbType.VarChar, 100).Value = bairro;
             comm.Parameters.Add("@cidade", MySqlDbType.VarChar, 100).Value = cidade;
             comm.Parameters.Add("@estado", MySqlDbType.VarChar, 2).Value = estado;
@@ -155,7 +157,7 @@ namespace GPSFrancisco
         public void carregaAtribuicoes()
         {
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "select * from tbAtribuicoes order by nome;";
+            comm.CommandText = "select * from tbatribuicoes order by nome;";
             comm.CommandType = CommandType.Text;
 
             comm.Connection = Conexao.obterConexao();
@@ -344,7 +346,7 @@ namespace GPSFrancisco
 
 
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "select * from tbVoluntarios where nome = @nome;";
+            comm.CommandText = "select * from tbVoluntarios as vol inner join tbAtribuicoes as atr on vol.codAtr = atr.codAtr where vol.nome = @nome;";
             comm.CommandType = CommandType.Text;
             comm.Parameters.Clear();
             comm.Parameters.Add("@nome", MySqlDbType.VarChar, 100).Value = nome;
@@ -356,11 +358,11 @@ namespace GPSFrancisco
             DR = comm.ExecuteReader();
             DR.Read();
 
-            if (DR.GetInt32(13) == 1)
+            if (DR.GetInt32(14) == 1)
             {
                 status = true;
             }
-            if (DR.GetInt32(13) == 0)
+            if (DR.GetInt32(14) == 0)
             {
                 status = false;
             }
@@ -372,14 +374,16 @@ namespace GPSFrancisco
             txtEndereco.Text = DR.GetString(4);
             txtNumero.Text = DR.GetString(5);
             mskCEP.Text = DR.GetString(6);
-            txtBairro.Text = DR.GetString(7);
-            txtCidade.Text = DR.GetString(8);
-            cbbEstado.Text = DR.GetString(9);
-            codigoAtribucao = DR.GetInt32(10);
-            dtpData.Value = DR.GetDateTime(11);
-            dtpHora.Value = DR.GetDateTime(12);
+            txtComplemento.Text = DR.GetString(7);
+            txtBairro.Text = DR.GetString(8);
+            txtCidade.Text = DR.GetString(9);
+            cbbEstado.Text = DR.GetString(10);
+            codigoAtribucao = DR.GetInt32(14);
+            dtpData.Value = DR.GetDateTime(12);
+            dtpHora.Value = DR.GetDateTime(13);
             ckbAtivo.Checked = status;
           // pcbFoto.Image = DR.GetBytes(14);
+            cbbAtribuicoes.Text = DR.GetString(17);
 
             Conexao.fecharConexao();
 
