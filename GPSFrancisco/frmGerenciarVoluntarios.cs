@@ -102,7 +102,7 @@ namespace GPSFrancisco
                     txtEndereco.Text, txtNumero.Text, mskCEP.Text, txtComplemento.Text,
                     txtBairro.Text, txtCidade.Text, cbbEstado.Text,
                     codigoAtribucao, dtpData.Value,
-                    dtpHora.Value, status,salvarFotos().LongLength) == 1)
+                    dtpHora.Value, status,salvarFotos()) == 1)
                 {
 
                 }
@@ -121,7 +121,7 @@ namespace GPSFrancisco
         public int cadastrarVoluntarios(string nome, string email, string telCel,
             string endereco, string numero, string cep, string complemento, string bairro,
             string cidade, string estado, int codAtr,
-            DateTime data, DateTime hora, int status, long foto)
+            DateTime data, DateTime hora, int status, byte[] foto)
         {
             MySqlCommand comm = new MySqlCommand();
             comm.CommandText = "insert into tbVoluntarios(nome,email,telCel,endereco,numero,cep,complemento,bairro,cidade,estado,codAtr,data,hora,status,foto)values(@nome,@email,@telCel,@endereco,@numero,@cep,@complemento,@bairro,@cidade,@estado,@codAtr,@data,@hora,@status,@foto);";
@@ -367,6 +367,10 @@ namespace GPSFrancisco
                 status = false;
             }
 
+            byte[] imagemData = (byte[])DR.GetValue(15);
+            MemoryStream ms = new MemoryStream(imagemData);
+            pcbFoto.Image = Image.FromStream(ms);
+
             txtCodigo.Text = Convert.ToString(DR.GetInt32(0));
             txtNome.Text = DR.GetString(1);
             txtEmail.Text = DR.GetString(2);
@@ -388,6 +392,11 @@ namespace GPSFrancisco
             Conexao.fecharConexao();
 
             habilitarCamposAlterar();
+
+        }
+
+        public void carregarfoto()
+        {
 
         }
 
@@ -436,5 +445,92 @@ namespace GPSFrancisco
             return imagem_byte;
         }
 
+        public int excluirVoluntario(int codvol)
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "delete from tbvoluntarios where codVol = @codVol";
+            comm.CommandType = CommandType.Text;
+
+            comm.Parameters.Clear();
+            comm.Parameters.Add("@codVol", MySqlDbType.Int32).Value = codvol;
+            comm.Connection = Conexao.obterConexao();
+
+            int resp = comm.ExecuteNonQuery();
+
+            Conexao.fecharConexao();
+
+            return resp;
+
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Deseja excluir", "Mensagem do sistema", 
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button2);
+            if (result == DialogResult.Yes) 
+            {
+              int resp =  excluirVoluntario(Convert.ToInt32(txtCodigo.Text));
+                if (resp == 1)
+                { 
+                    MessageBox.Show("Excluido com sucesso","Mensagem do sistemas",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information, 
+                        MessageBoxDefaultButton.Button1);
+                    limparCampos();
+                    desabilitarCamposNovo();
+
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao exluir", "Mensagem do sistemas",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information,
+                        MessageBoxDefaultButton.Button1);
+                }
+            }
+            else
+            {
+                limparCampos();
+                desabilitarCamposNovo();
+                btnNovo.Enabled = true;
+            }
+        }
+
+        public int alterarUsuario(int codvol)
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "update";
+            comm.CommandType = CommandType.Text;
+
+            comm.Parameters.Clear();
+            comm.Parameters.Add("",MySqlDbType.Int32).Value = codvol;
+
+            comm.Connection = Conexao.obterConexao();
+
+            int resp = comm.ExecuteNonQuery();
+
+            Conexao.fecharConexao();
+
+            return resp;
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            int resp = alterarUsuario(Convert.ToInt32(txtNome.Text));
+
+            if (resp == 1)
+            {
+                MessageBox.Show("Alterado com sucesso", "Mensagem do sistemas",
+                      MessageBoxButtons.OK, MessageBoxIcon.Information,
+                      MessageBoxDefaultButton.Button1);
+
+            }
+            else
+            {
+                MessageBox.Show("Alterado com sucesso", "Mensagem do sistemas",
+                      MessageBoxButtons.OK, MessageBoxIcon.Information,
+                      MessageBoxDefaultButton.Button1);
+            }
+        }
     }
 }
