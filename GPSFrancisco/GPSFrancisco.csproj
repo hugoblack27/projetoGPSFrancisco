@@ -145,6 +145,12 @@
     <Compile Include="frmBoleto.Designer.cs">
       <DependentUpon>frmBoleto.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmGerenciarProdutos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGerenciarProdutos.Designer.cs">
+      <DependentUpon>frmGerenciarProdutos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCalendario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,6 +205,12 @@
     <Compile Include="frmSplash.Designer.cs">
       <DependentUpon>frmSplash.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmUnidades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUnidades.Designer.cs">
+      <DependentUpon>frmUnidades.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmAtribuicoes.resx">
@@ -206,6 +218,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmBoleto.resx">
       <DependentUpon>frmBoleto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGerenciarProdutos.resx">
+      <DependentUpon>frmGerenciarProdutos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCalendario.resx">
       <DependentUpon>frmCalendario.cs</DependentUpon>
@@ -233,6 +248,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSplash.resx">
       <DependentUpon>frmSplash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUnidades.resx">
+      <DependentUpon>frmUnidades.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

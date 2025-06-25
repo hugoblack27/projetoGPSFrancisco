@@ -98,7 +98,7 @@ namespace GPSFrancisco
                     status = 0;
                 }
                 if (cadastrarVoluntarios(
-                    txtNome.Text, txtEmail.Text, mskTelefone.Text,
+                     txtNome.Text, txtEmail.Text, mskTelefone.Text,
                     txtEndereco.Text, txtNumero.Text, mskCEP.Text, txtComplemento.Text,
                     txtBairro.Text, txtCidade.Text, cbbEstado.Text,
                     codigoAtribucao, dtpData.Value,
@@ -271,6 +271,7 @@ namespace GPSFrancisco
             btnExcluir.Enabled = true;
             btnAlterar.Enabled = true;
             btnLimpar.Enabled = true;
+            btnInserir.Enabled = true;
             txtNome.Focus();
         }
 
@@ -395,11 +396,6 @@ namespace GPSFrancisco
 
         }
 
-        public void carregarfoto()
-        {
-
-        }
-
         private void mskCEP_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -496,14 +492,32 @@ namespace GPSFrancisco
             }
         }
 
-        public int alterarUsuario(int codvol)
+        public int alterarUsuario(string nome, string email, string telCel,
+            string endereco, string numero, string cep, string complemento, string bairro,
+            string cidade, string estado, int codAtr,
+            DateTime data, DateTime hora, int status, byte[] foto, int codVol)
         {
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "update";
+            comm.CommandText = "update tbVoluntarios set nome=@nome,email=@email,telCel=@telCel,endereco=@endereco,numero=@numero,cep=@cep,complemento=@complemento,bairro=@bairro,cidade=@cidade,estado=@estado,codAtr=@codAtr,data=@data,hora=@hora,status=@status,foto=@foto where codVol=@codVol;";
             comm.CommandType = CommandType.Text;
 
             comm.Parameters.Clear();
-            comm.Parameters.Add("",MySqlDbType.Int32).Value = codvol;
+            comm.Parameters.Add("@nome", MySqlDbType.VarChar, 100).Value = nome;
+            comm.Parameters.Add("@email", MySqlDbType.VarChar, 100).Value = email;
+            comm.Parameters.Add("@telCel", MySqlDbType.VarChar, 15).Value = telCel;
+            comm.Parameters.Add("@endereco", MySqlDbType.VarChar, 100).Value = endereco;
+            comm.Parameters.Add("@numero", MySqlDbType.VarChar, 5).Value = numero;
+            comm.Parameters.Add("@cep", MySqlDbType.VarChar, 9).Value = cep;
+            comm.Parameters.Add("@complemento", MySqlDbType.VarChar, 100).Value = complemento;
+            comm.Parameters.Add("@bairro", MySqlDbType.VarChar, 100).Value = bairro;
+            comm.Parameters.Add("@cidade", MySqlDbType.VarChar, 100).Value = cidade;
+            comm.Parameters.Add("@estado", MySqlDbType.VarChar, 2).Value = estado;
+            comm.Parameters.Add("@codAtr", MySqlDbType.Int32).Value = codigoAtribucao;
+            comm.Parameters.Add("@data", MySqlDbType.DateTime, 100).Value = data;
+            comm.Parameters.Add("@hora", MySqlDbType.DateTime, 100).Value = hora;
+            comm.Parameters.Add("@status", MySqlDbType.Int32).Value = status;
+            comm.Parameters.Add("@foto", MySqlDbType.LongBlob).Value = foto;
+            comm.Parameters.Add("@codVol", MySqlDbType.Int32).Value = codVol;
 
             comm.Connection = Conexao.obterConexao();
 
@@ -512,11 +526,27 @@ namespace GPSFrancisco
             Conexao.fecharConexao();
 
             return resp;
+
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            int resp = alterarUsuario(Convert.ToInt32(txtNome.Text));
+            
+            int status = 0;
+            if (ckbAtivo.Checked)
+            {
+                status = 1;
+            }
+            else
+            {
+                status = 0;
+            }
+
+            int resp = alterarUsuario(txtNome.Text, txtEmail.Text, mskTelefone.Text,
+                    txtEndereco.Text, txtNumero.Text, mskCEP.Text, txtComplemento.Text,
+                    txtBairro.Text, txtCidade.Text, cbbEstado.Text,
+                    codigoAtribucao, dtpData.Value,
+                    dtpHora.Value, status, salvarFotos(), Convert.ToInt32(txtCodigo.Text));
 
             if (resp == 1)
             {
