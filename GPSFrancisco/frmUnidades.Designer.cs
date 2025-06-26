@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUnidades));
             this.gpbUnidade = new System.Windows.Forms.GroupBox();
+            this.txtUnidade = new System.Windows.Forms.TextBox();
             this.lblUnidade = new System.Windows.Forms.Label();
             this.txtDescricao = new System.Windows.Forms.TextBox();
             this.lblDescricao = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
-            this.txtUnidade = new System.Windows.Forms.TextBox();
             this.pnlCRUD = new System.Windows.Forms.Panel();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
@@ -64,18 +64,26 @@
             this.gpbUnidade.TabStop = false;
             this.gpbUnidade.Text = "Unidade";
             // 
+            // txtUnidade
+            // 
+            this.txtUnidade.Location = new System.Drawing.Point(27, 162);
+            this.txtUnidade.MaxLength = 10;
+            this.txtUnidade.Name = "txtUnidade";
+            this.txtUnidade.Size = new System.Drawing.Size(180, 26);
+            this.txtUnidade.TabIndex = 32;
+            // 
             // lblUnidade
             // 
             this.lblUnidade.AutoSize = true;
-            this.lblUnidade.Location = new System.Drawing.Point(332, 120);
+            this.lblUnidade.Location = new System.Drawing.Point(27, 130);
             this.lblUnidade.Name = "lblUnidade";
-            this.lblUnidade.Size = new System.Drawing.Size(69, 20);
+            this.lblUnidade.Size = new System.Drawing.Size(147, 20);
             this.lblUnidade.TabIndex = 31;
-            this.lblUnidade.Text = "Unidade";
+            this.lblUnidade.Text = "Unidade de medida";
             // 
             // txtDescricao
             // 
-            this.txtDescricao.Location = new System.Drawing.Point(27, 143);
+            this.txtDescricao.Location = new System.Drawing.Point(187, 66);
             this.txtDescricao.MaxLength = 100;
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(256, 26);
@@ -84,7 +92,7 @@
             // lblDescricao
             // 
             this.lblDescricao.AutoSize = true;
-            this.lblDescricao.Location = new System.Drawing.Point(27, 120);
+            this.lblDescricao.Location = new System.Drawing.Point(187, 43);
             this.lblDescricao.Name = "lblDescricao";
             this.lblDescricao.Size = new System.Drawing.Size(80, 20);
             this.lblDescricao.TabIndex = 2;
@@ -96,7 +104,7 @@
             this.txtCodigo.Location = new System.Drawing.Point(27, 66);
             this.txtCodigo.MaxLength = 5;
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(256, 26);
+            this.txtCodigo.Size = new System.Drawing.Size(130, 26);
             this.txtCodigo.TabIndex = 1;
             // 
             // lblCodigo
@@ -104,17 +112,9 @@
             this.lblCodigo.AutoSize = true;
             this.lblCodigo.Location = new System.Drawing.Point(27, 38);
             this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(130, 20);
+            this.lblCodigo.Size = new System.Drawing.Size(59, 20);
             this.lblCodigo.TabIndex = 0;
-            this.lblCodigo.Text = "Código de barras";
-            // 
-            // txtUnidade
-            // 
-            this.txtUnidade.Location = new System.Drawing.Point(336, 143);
-            this.txtUnidade.MaxLength = 100;
-            this.txtUnidade.Name = "txtUnidade";
-            this.txtUnidade.Size = new System.Drawing.Size(101, 26);
-            this.txtUnidade.TabIndex = 32;
+            this.lblCodigo.Text = "Código";
             // 
             // pnlCRUD
             // 
@@ -156,6 +156,7 @@
             this.btnLimpar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLimpar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // btnPesquisar
             // 
@@ -169,6 +170,7 @@
             this.btnPesquisar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPesquisar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // btnExcluir
             // 
@@ -182,6 +184,7 @@
             this.btnExcluir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnExcluir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnAlterar
             // 
@@ -195,6 +198,7 @@
             this.btnAlterar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAlterar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnCadastrar
             // 
@@ -208,6 +212,7 @@
             this.btnCadastrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCadastrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // btnNovo
             // 
@@ -221,6 +226,7 @@
             this.btnNovo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // frmUnidades
             // 

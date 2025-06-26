@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,27 @@ namespace GPSFrancisco
         public frmGerenciarProdutos()
         {
             InitializeComponent();
+            carregarUnidadedemedida();
+        }
+
+        public void carregarUnidadedemedida()
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "select * from tbunidades order by unidade;";
+            comm.CommandType = CommandType.Text;
+
+
+            comm.Connection = Conexao.obterConexao();
+
+            MySqlDataReader DR;
+            DR = comm.ExecuteReader();
+
+            while (DR.Read())
+            {
+                cbbUnidades.Items.Add(DR.GetString(2));
+            }
+
+            Conexao.fecharConexao();
         }
     }
 }

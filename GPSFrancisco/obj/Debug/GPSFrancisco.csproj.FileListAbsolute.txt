@@ -118,3 +118,6 @@ C:\Users\hugo.hpsantos1\Documents\Visual Studio 2022\GPSFrancisco\TDS01-CSharp\G
 C:\Users\hugo.hpsantos1\Documents\Visual Studio 2022\GPSFrancisco\TDS01-CSharp\GPSFrancisco\obj\Debug\GPSFranc.6682C739.Up2Date
 C:\Users\hugo.hpsantos1\Documents\Visual Studio 2022\GPSFrancisco\TDS01-CSharp\GPSFrancisco\obj\Debug\GPSFrancisco.exe
 C:\Users\hugo.hpsantos1\Documents\Visual Studio 2022\GPSFrancisco\TDS01-CSharp\GPSFrancisco\obj\Debug\GPSFrancisco.pdb
+C:\Users\hugo.hpsantos1\Documents\Visual Studio 2022\GPSFrancisco\TDS01-CSharp\GPSFrancisco\obj\Debug\GPSFrancisco.frmGerenciarProdutos.resources
+C:\Users\hugo.hpsantos1\Documents\Visual Studio 2022\GPSFrancisco\TDS01-CSharp\GPSFrancisco\obj\Debug\GPSFrancisco.frmUnidades.resources
+C:\Users\hugo.hpsantos1\Documents\Visual Studio 2022\GPSFrancisco\TDS01-CSharp\GPSFrancisco\obj\Debug\GPSFrancisco.frmPesquisarUnidadesMedida.resources
