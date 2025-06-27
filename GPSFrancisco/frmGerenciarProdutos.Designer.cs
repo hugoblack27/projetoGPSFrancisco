@@ -32,7 +32,7 @@
             this.gpbInformacoesVoluntario = new System.Windows.Forms.GroupBox();
             this.lblImagemcodigodebarras = new System.Windows.Forms.Label();
             this.pcbcodigodebarras = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnVerificaunidade = new System.Windows.Forms.Button();
             this.lblDataEntrada = new System.Windows.Forms.Label();
             this.lblValidade = new System.Windows.Forms.Label();
             this.lblHoradeEntrada = new System.Windows.Forms.Label();
@@ -70,7 +70,7 @@
             // 
             this.gpbInformacoesVoluntario.Controls.Add(this.lblImagemcodigodebarras);
             this.gpbInformacoesVoluntario.Controls.Add(this.pcbcodigodebarras);
-            this.gpbInformacoesVoluntario.Controls.Add(this.button1);
+            this.gpbInformacoesVoluntario.Controls.Add(this.btnVerificaunidade);
             this.gpbInformacoesVoluntario.Controls.Add(this.lblDataEntrada);
             this.gpbInformacoesVoluntario.Controls.Add(this.lblValidade);
             this.gpbInformacoesVoluntario.Controls.Add(this.lblHoradeEntrada);
@@ -111,21 +111,22 @@
             this.pcbcodigodebarras.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pcbcodigodebarras.Location = new System.Drawing.Point(325, 49);
             this.pcbcodigodebarras.Name = "pcbcodigodebarras";
-            this.pcbcodigodebarras.Size = new System.Drawing.Size(339, 43);
-            this.pcbcodigodebarras.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbcodigodebarras.Size = new System.Drawing.Size(339, 57);
+            this.pcbcodigodebarras.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pcbcodigodebarras.TabIndex = 41;
             this.pcbcodigodebarras.TabStop = false;
             // 
-            // button1
+            // btnVerificaunidade
             // 
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(624, 137);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(40, 39);
-            this.button1.TabIndex = 40;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnVerificaunidade.FlatAppearance.BorderSize = 0;
+            this.btnVerificaunidade.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerificaunidade.Image = ((System.Drawing.Image)(resources.GetObject("btnVerificaunidade.Image")));
+            this.btnVerificaunidade.Location = new System.Drawing.Point(624, 137);
+            this.btnVerificaunidade.Name = "btnVerificaunidade";
+            this.btnVerificaunidade.Size = new System.Drawing.Size(40, 39);
+            this.btnVerificaunidade.TabIndex = 40;
+            this.btnVerificaunidade.UseVisualStyleBackColor = true;
+            this.btnVerificaunidade.Click += new System.EventHandler(this.btnVerificaunidade_Click);
             // 
             // lblDataEntrada
             // 
@@ -269,12 +270,12 @@
             // 
             // txtCodigodeBarras
             // 
-            this.txtCodigodeBarras.Enabled = false;
             this.txtCodigodeBarras.Location = new System.Drawing.Point(27, 66);
-            this.txtCodigodeBarras.MaxLength = 5;
+            this.txtCodigodeBarras.MaxLength = 15;
             this.txtCodigodeBarras.Name = "txtCodigodeBarras";
             this.txtCodigodeBarras.Size = new System.Drawing.Size(256, 26);
             this.txtCodigodeBarras.TabIndex = 1;
+            this.txtCodigodeBarras.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigodeBarras_KeyDown);
             // 
             // lblCodigodeBarras
             // 
@@ -440,7 +441,7 @@
         private System.Windows.Forms.Label lblValidade;
         private System.Windows.Forms.Label lblHoradeEntrada;
         private System.Windows.Forms.DateTimePicker dtpValidade;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnVerificaunidade;
         private System.Windows.Forms.Label lblDataEntrada;
         private System.Windows.Forms.OpenFileDialog opfdCarregaProduto;
         private System.Windows.Forms.Label lblImagemcodigodebarras;

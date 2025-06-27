@@ -24,7 +24,28 @@ namespace GPSFrancisco
             InitializeComponent();
             desabilitarCamposNovo();
             txtDescricao.Text = descricao;
+            txtUnidade.Text = descricao;
+            pesquisarPorNome(txtDescricao.Text);
+            habilitarCampos();
         }
+
+        public void habilitarCampos()
+        {
+
+            txtCodigo.Enabled = false;
+            txtDescricao.Enabled = true;
+            txtUnidade.Enabled = true;
+
+            btnNovo.Enabled = true;
+            btnCadastrar.Enabled = true;
+            btnExcluir.Enabled = true;
+            btnAlterar.Enabled = true;
+            btnLimpar.Enabled = true;
+            txtDescricao.Focus();
+        }
+
+
+
 
         public void habilitarCamposNovo()
         {
@@ -65,6 +86,7 @@ namespace GPSFrancisco
         // cadastrando unidades 
         public int Cadastrarunidade(string descricao, string unidades)
         {
+            
             MySqlCommand comm = new MySqlCommand();
             comm.CommandText = "insert into tbunidades(descricao,unidade)values(@descricao,@unidade);";
             comm.CommandType = CommandType.Text;
@@ -74,12 +96,13 @@ namespace GPSFrancisco
             comm.Parameters.Add("@unidade",MySqlDbType.VarChar, 2).Value = unidades ;
 
             comm.Connection = Conexao.obterConexao();
+          
+           int resp = comm.ExecuteNonQuery();
 
-            int resp = comm.ExecuteNonQuery();
-
-            Conexao.fecharConexao();
-
+            Conexao.fecharConexao();    
+            
             return resp;
+
         }
 
         public int Alterarunidade(string descricao, string unidades, int codUnid)
@@ -136,7 +159,7 @@ namespace GPSFrancisco
         public void pesquisarPorNome(string descricao)
         {
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "select * from tbunidade where descricao=@descricao";
+            comm.CommandText = "select * from tbunidades where descricao=@descricao";
             comm.CommandType = CommandType.Text;
 
             comm.Connection = Conexao.obterConexao();
@@ -189,6 +212,7 @@ namespace GPSFrancisco
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
+            habilitarCampos();
             frmPesquisarUnidadesMedida abrir = new frmPesquisarUnidadesMedida();
             abrir.Show();
             this.Hide();
@@ -212,18 +236,45 @@ namespace GPSFrancisco
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            int resp = Excluirunidade(Convert.ToInt32(txtCodigo.Text));
-            if(resp == 1)
+            DialogResult dr = MessageBox.Show("Deseja excluir?",
+                "Mensagem do Sistema",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question, 
+                MessageBoxDefaultButton.Button2);
+
+            if (dr == DialogResult.Yes) 
             {
-                MessageBox.Show("Alterado com Sucesso", "Mensagem do sistema", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
-                limpacampos();
-                desabilitarCamposNovo();
+                int resp = Excluirunidade(Convert.ToInt32(txtCodigo.Text));
+                if (resp == 1)
+                {
+                    MessageBox.Show("Excluido com sucesso!!?", "Mensagem do Sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao excluir", 
+                        "Mensagem do Sistema", 
+                        MessageBoxButtons.YesNo, 
+                        MessageBoxIcon.Question, 
+                        MessageBoxDefaultButton.Button2);
+                }
             }
             else
             {
-                MessageBox.Show("Erro ao Alterar", "Mensagem do sistema", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                MessageBox.Show("Erro ao excluir", 
+                    "Mensagem do Sistema", 
+                    MessageBoxButtons.YesNo, 
+                    MessageBoxIcon.Question, 
+                    MessageBoxDefaultButton.Button2);
 
             }
+        }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            frmGerenciarProdutos abrir = new frmGerenciarProdutos();
+            abrir.Show();
+            this.Hide();
         }
     }
 }

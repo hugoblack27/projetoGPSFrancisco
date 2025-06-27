@@ -21,6 +21,7 @@ namespace GPSFrancisco
         private void ltbPesquisar_SelectedIndexChanged(object sender, EventArgs e)
         {
             string descricao = ltbPesquisar.SelectedItem.ToString();
+
             frmUnidades abrir = new frmUnidades(descricao);
             abrir.Show();
             this.Hide();

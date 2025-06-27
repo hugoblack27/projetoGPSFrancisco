@@ -16,7 +16,7 @@ namespace GPSFrancisco
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmUnidades());
+            Application.Run(new frmGerenciarProdutos());
         }
        
     }

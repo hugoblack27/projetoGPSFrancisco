@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\hugo.hpsantos1\\Documents\\Visual Studio 2022\\GPSFrancisco\\TDS01-CSharp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{68B27802-E8DE-4497-82AA-E78E4A290440}|GPSFrancisco\\GPSFrancisco.csproj|c:\\users\\hugo.hpsantos1\\documents\\visual studio 2022\\gpsfrancisco\\tds01-csharp\\gpsfrancisco\\frmunidades.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{68B27802-E8DE-4497-82AA-E78E4A290440}|GPSFrancisco\\GPSFrancisco.csproj|solutionrelative:gpsfrancisco\\frmunidades.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{68B27802-E8DE-4497-82AA-E78E4A290440}|GPSFrancisco\\GPSFrancisco.csproj|c:\\users\\hugo.hpsantos1\\documents\\visual studio 2022\\gpsfrancisco\\tds01-csharp\\gpsfrancisco\\frmgerenciarprodutos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{68B27802-E8DE-4497-82AA-E78E4A290440}|GPSFrancisco\\GPSFrancisco.csproj|solutionrelative:gpsfrancisco\\frmgerenciarprodutos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{68B27802-E8DE-4497-82AA-E78E4A290440}|GPSFrancisco\\GPSFrancisco.csproj|c:\\users\\hugo.hpsantos1\\documents\\visual studio 2022\\gpsfrancisco\\tds01-csharp\\gpsfrancisco\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{68B27802-E8DE-4497-82AA-E78E4A290440}|GPSFrancisco\\GPSFrancisco.csproj|solutionrelative:gpsfrancisco\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{68B27802-E8DE-4497-82AA-E78E4A290440}|GPSFrancisco\\GPSFrancisco.csproj|C:\\Users\\hugo.hpsantos1\\Documents\\Visual Studio 2022\\GPSFrancisco\\TDS01-CSharp\\gpsfrancisco\\frmunidades.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{68B27802-E8DE-4497-82AA-E78E4A290440}|GPSFrancisco\\GPSFrancisco.csproj|solutionrelative:gpsfrancisco\\frmunidades.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{68B27802-E8DE-4497-82AA-E78E4A290440}|GPSFrancisco\\GPSFrancisco.csproj|c:\\users\\hugo.hpsantos1\\documents\\visual studio 2022\\gpsfrancisco\\tds01-csharp\\gpsfrancisco\\frmgerenciarprodutos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{68B27802-E8DE-4497-82AA-E78E4A290440}|GPSFrancisco\\GPSFrancisco.csproj|solutionrelative:gpsfrancisco\\frmgerenciarprodutos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,44 +18,31 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\hugo.hpsantos1\\Documents\\Visual Studio 2022\\GPSFrancisco\\TDS01-CSharp\\GPSFrancisco\\Program.cs",
-              "RelativeDocumentMoniker": "GPSFrancisco\\Program.cs",
-              "ToolTip": "C:\\Users\\hugo.hpsantos1\\Documents\\Visual Studio 2022\\GPSFrancisco\\TDS01-CSharp\\GPSFrancisco\\Program.cs",
-              "RelativeToolTip": "GPSFrancisco\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T14:54:03.454Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "frmUnidades.cs",
-              "DocumentMoniker": "C:\\Users\\hugo.hpsantos1\\Documents\\Visual Studio 2022\\GPSFrancisco\\TDS01-CSharp\\GPSFrancisco\\frmUnidades.cs",
-              "RelativeDocumentMoniker": "GPSFrancisco\\frmUnidades.cs",
-              "ToolTip": "C:\\Users\\hugo.hpsantos1\\Documents\\Visual Studio 2022\\GPSFrancisco\\TDS01-CSharp\\GPSFrancisco\\frmUnidades.cs",
-              "RelativeToolTip": "GPSFrancisco\\frmUnidades.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAwwIoAAABSAAAAAAAAAA==",
+              "Title": "frmGerenciarProdutos.cs",
+              "DocumentMoniker": "C:\\Users\\hugo.hpsantos1\\Documents\\Visual Studio 2022\\GPSFrancisco\\TDS01-CSharp\\GPSFrancisco\\frmGerenciarProdutos.cs",
+              "RelativeDocumentMoniker": "GPSFrancisco\\frmGerenciarProdutos.cs",
+              "ToolTip": "C:\\Users\\hugo.hpsantos1\\Documents\\Visual Studio 2022\\GPSFrancisco\\TDS01-CSharp\\GPSFrancisco\\frmGerenciarProdutos.cs",
+              "RelativeToolTip": "GPSFrancisco\\frmGerenciarProdutos.cs",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAIwGwAAADnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T11:37:54.135Z",
+              "WhenOpened": "2025-06-27T13:40:16.778Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "frmUnidades.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\hugo.hpsantos1\\Documents\\Visual Studio 2022\\GPSFrancisco\\TDS01-CSharp\\GPSFrancisco\\frmUnidades.cs",
-              "RelativeDocumentMoniker": "GPSFrancisco\\frmUnidades.cs",
-              "ToolTip": "C:\\Users\\hugo.hpsantos1\\Documents\\Visual Studio 2022\\GPSFrancisco\\TDS01-CSharp\\GPSFrancisco\\frmUnidades.cs [Design]",
-              "RelativeToolTip": "GPSFrancisco\\frmUnidades.cs [Design]",
+              "DocumentIndex": 1,
+              "Title": "frmGerenciarProdutos.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\hugo.hpsantos1\\Documents\\Visual Studio 2022\\GPSFrancisco\\TDS01-CSharp\\GPSFrancisco\\frmGerenciarProdutos.cs",
+              "RelativeDocumentMoniker": "GPSFrancisco\\frmGerenciarProdutos.cs",
+              "ToolTip": "C:\\Users\\hugo.hpsantos1\\Documents\\Visual Studio 2022\\GPSFrancisco\\TDS01-CSharp\\GPSFrancisco\\frmGerenciarProdutos.cs [Design]",
+              "RelativeToolTip": "GPSFrancisco\\frmGerenciarProdutos.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-25T14:20:28.593Z",
+              "WhenOpened": "2025-06-27T13:36:31.78Z",
               "EditorCaption": " [Design]"
             }
           ]
